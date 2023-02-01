@@ -1,12 +1,13 @@
 # Cross-lingual Question Answering over Knowledge Base as Reading Comprehension
 Data and code for *Cross-lingual Question Answering over Knowledge Base as Reading Comprehension*, Findings of EACL 2023
 
-## WebQSP-zh
-WebQSP-zh consists of 4,737 questions mannually translated from WebQSP by Chinese native speakers.
+## Dataset: WebQSP-zh
+We present WebQSP-zh, a new dataset for cross-lingual KBQA.
+It consists of 4,737 questions mannually translated from WebQSP by Chinese native speakers.
 
 See `data/raw/webqsp-zh/README.md` for details.
 
-## xKBQA-as-MRC
+## Method: xKBQA-as-MRC
 We propose a novel approach for xKBQA in a reading comprehension paradigm. 
 We demonstrate its effectiveness on two datasets, WebQSP-zh and QALD-M.
 Here we describe how to run the code.
@@ -18,7 +19,7 @@ Here we describe how to run the code.
 ### Data Preparation
 1. MRC datasets for finetuning
 * SQuAD 1.1: Put SQuAD 1.1 in `data/external/squad` if you want to training the model from scratch.
-* Existing xMRC datasets: We combine the existing xMRC data for each langugae for finetuning. Download the zip from **[url]** and put the json files in `data/external/xmrc`.
+* Existing xMRC datasets: We aggregate the existing xMRC data in each language for finetuning. Download the zip from **[url]** and put the json files in `data/external/xmrc`.
 
 2. KB-to-text generation results
 We provide the processed subset of KBs and the results of KB-to-text Generation.
@@ -28,7 +29,7 @@ Download the zip from **[url]** and put the json files in `data/processed/kb2tex
 Download the zip from **[url]** and put the folder `paraphrase-multilingual-mpnet-base-v2` in `data/external`
 
 
-### Experiments on WebQSP-zh
+### Supervised Experiments on WebQSP-zh
 #### Step 1: KB-to-text Generation
 For KB-to-text generation, we use BART-base version of JointGT finetuned on WebNLG.
 One can try other SOTA data-to-text models for better generation quality. 
@@ -53,7 +54,8 @@ You can also download the output data from **[url]** and put the json files in `
 
 #### Step 3: xMRC
 
-##### Inference
+* Inference
+  
 Download our checkpoint from **[url]** and put it in `models`.
 
 Run the following code:
@@ -74,7 +76,8 @@ python run_squad_choice.py \
 ```
 The prediction results are in `models/xlm-roberta-large_squad-xmrc_webqsp-zh/post_processed_results.json`.
 
-##### Training from scratch
+* Training from scratch
+  
 Run the following code:
 ```
 cd src
@@ -83,7 +86,7 @@ chmod +x train_webqsp-zh.sh
 ```
 
 
-### Experiments on QALD-M
+### Zero-shot Experiments on QALD-M
 #### Step 1: KB-to-text Generation
 We provide the processed subset of DBPedia and the results of KB-to-text Generation in `data/external/kb2text/kb2text-results_dbpedia-for-qald-m.pk`.
 
@@ -103,7 +106,8 @@ You can also download the output data from **[url]** and put the json files in `
 
 #### Step 3: xMRC
 
-##### Inference
+* Inference
+  
 Download our checkpoint (trained with a combination of the data in all the languages) from **[url]** and put it in `models`.
 
 
@@ -124,9 +128,17 @@ python run_squad_choice.py \
 --overwrite_output_dir
 ```
 
+Replace `{lang}` with the languages in `['fa', 'de', 'ro', 'hi', 'it', 'ru', 'fr', 'nl', 'es', 'pt', 'pt_BR']`.
 
-# Troubleshooting
-1. Errors when running transformers 
+The prediction results are in `models/xlm-roberta-large_squad-combined_qald_{lang}/post_processed_results.json`.
+
+* Training from scratch
+
+If you want training a model from scratch with xMRC data, you can follow the similar procedure in `src/train_webqsp-zh.sh`: First finetune the model on SQuAD, then on the xMRC datasets of the target language (`data/external/xmrc/combined_xmrc_{lang}.json`) or a combination of all the languages (`data/external/xmrc/combined_xmrc_all.json`).
+
+
+## Troubleshooting
+1. Error when running transformers 3.5.1
 ```
 Traceback (most recent call last):
   File "run_squad_choice.py", line 32, in <module>
@@ -139,6 +151,6 @@ Traceback (most recent call last):
     from torch.optim.lr_scheduler import SAVE_STATE_WARNING
 ImportError: cannot import name 'SAVE_STATE_WARNING' from 'torch.optim.lr_scheduler' (~/anaconda3/envs/xkbqa/lib/python3.8/site-packages/torch/optim/lr_scheduler.py)
 ```
-Comment out this line of code `from torch.optim.lr_scheduler import SAVE_STATE_WARNING` and add `SAVE_STATE_WARNING = ""`.
+Replace this line of code `from torch.optim.lr_scheduler import SAVE_STATE_WARNING` with `SAVE_STATE_WARNING = ""`.
 
 2. Please use only one GPU when running the code. We did not test the code with multiple GPUs, so there could be unexpected results under the setting of multi-GPU. 
