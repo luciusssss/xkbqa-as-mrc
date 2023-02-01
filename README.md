@@ -1,10 +1,10 @@
 # Cross-lingual Question Answering over Knowledge Base as Reading Comprehension
-Data and code for 'Cross-lingual Question Answering over Knowledge Base as Reading Comprehension', Findings of EACL 2023
+Data and code for *Cross-lingual Question Answering over Knowledge Base as Reading Comprehension*, Findings of EACL 2023
 
 ## WebQSP-zh
 WebQSP-zh consists of 4,737 questions mannually translated from WebQSP by Chinese native speakers.
 
-See `data/raw/webqsp-zh` for details.
+See `data/raw/webqsp-zh/README.md` for details.
 
 ## xKBQA-as-MRC
 We propose a novel approach for xKBQA in a reading comprehension paradigm. 
@@ -13,7 +13,7 @@ Here we describe how to run the code.
 
 ### Dependency
 * Python >= 3.8
-* 
+* See other dependency in `requirements.txt`
 
 ### Data Preparation
 1. MRC datasets for finetuning
@@ -42,38 +42,39 @@ Run `src/obtain_passages_webqsp-zh.py` to construct a passage for each question.
 ```bash
 cd src
 python obtain_passages_webqsp-zh.py \
---kb2text_path ../data/processed/kb2text/kb2text-results_freebase-for-webqsp-zh.json \
---sent_trans_path  ../data/external/paraphrase-multilingual-mpnet-base-v2 \
---train_data_path ../data/raw/webqsp-zh/train.json \
---test_data_path ../data/raw/webqsp-zh/test.json \
---output_path ../data/processed/webqsp-zh_xkbqa-as-mrc 
+    --kb2text_path ../data/processed/kb2text/kb2text-results_freebase-for-webqsp-zh.json \
+    --sent_trans_path  ../data/external/paraphrase-multilingual-mpnet-base-v2 \
+    --train_data_path ../data/raw/webqsp-zh/train.json \
+    --test_data_path ../data/raw/webqsp-zh/test.json \
+    --output_path ../data/processed/webqsp-zh_xkbqa-as-mrc 
 ```
 
-You can also download the output data from **[url]**.
+You can also download the output data from **[url]** and put the json files in `data/processed/webqsp-zh_xkbqa-as-mrc`.
 
-### Step 3: xMRC
-**Inference**
+#### Step 3: xMRC
+
+##### Inference
 Download our checkpoint from **[url]** and put it in `models`.
 
 Run the following code:
 ```bash
 cd src
 python run_squad_choice.py \
---model_type roberta \
---model_name_or_path ../models/xlm-roberta-large_squad-xmrc_webqsp-zh \
---do_eval \
---do_lower_case \
---data_dir ../data/processed/webqsp-zh_xkbqa-as-mrc \
---predict_file test_squad.json \
---cache_dir ../models/xlm-roberta-large_squad-xmrc_webqsp-zh \
---max_seq_length 384 \
---doc_stride 128 \
---output_dir ../models/xlm-roberta-large_squad-xmrc_webqsp-zh \
---overwrite_output_dir
+    --model_type roberta \
+    --model_name_or_path ../models/xlm-roberta-large_squad-xmrc_webqsp-zh \
+    --do_eval \
+    --do_lower_case \
+    --data_dir ../data/processed/webqsp-zh_xkbqa-as-mrc \
+    --predict_file test_squad.json \
+    --cache_dir ../models/xlm-roberta-large_squad-xmrc_webqsp-zh \
+    --max_seq_length 384 \
+    --doc_stride 128 \
+    --output_dir ../models/xlm-roberta-large_squad-xmrc_webqsp-zh \
+    --overwrite_output_dir
 ```
 The prediction results are in `models/xlm-roberta-large_squad-xmrc_webqsp-zh/post_processed_results.json`.
 
-**Training from scratch**
+##### Training from scratch
 Run the following code:
 ```
 cd src
@@ -98,10 +99,11 @@ python obtain_passages_qald-m.py \
 --output_path ../data/processed/qald-m_xkbqa-as-mrc 
 ```
 
-You can also download the output data from **[url]**.
+You can also download the output data from **[url]** and put the json files in `data/processed/qald-m_xkbqa-as-mrc`.
 
-### Step 3: xMRC
-**Inference**
+#### Step 3: xMRC
+
+##### Inference
 Download our checkpoint (trained with a combination of the data in all the languages) from **[url]** and put it in `models`.
 
 
@@ -122,3 +124,21 @@ python run_squad_choice.py \
 --overwrite_output_dir
 ```
 
+
+# Troubleshooting
+1. Errors when running transformers 
+```
+Traceback (most recent call last):
+  File "run_squad_choice.py", line 32, in <module>
+    from transformers import (
+  File "~/anaconda3/envs/xkbqa/lib/python3.8/site-packages/transformers/__init__.py", line 626, in <module>
+    from .trainer import Trainer
+  File "~/anaconda3/envs/xkbqa/lib/python3.8/site-packages/transformers/trainer.py", line 69, in <module>
+    from .trainer_pt_utils import (
+  File "~/anaconda3/envs/xkbqa/lib/python3.8/site-packages/transformers/trainer_pt_utils.py", line 40, in <module>
+    from torch.optim.lr_scheduler import SAVE_STATE_WARNING
+ImportError: cannot import name 'SAVE_STATE_WARNING' from 'torch.optim.lr_scheduler' (~/anaconda3/envs/xkbqa/lib/python3.8/site-packages/torch/optim/lr_scheduler.py)
+```
+Comment out this line of code `from torch.optim.lr_scheduler import SAVE_STATE_WARNING` and add `SAVE_STATE_WARNING = ""`.
+
+2. Please use only one GPU when running the code. We did not test the code with multiple GPUs, so there could be unexpected results under the setting of multi-GPU. 
