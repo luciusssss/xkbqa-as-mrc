@@ -1,0 +1,614 @@
+{
+    "west_peoria": [
+        {
+            "passage": "West Peoria is in Peoria County .",
+            "answers": [
+                {
+                    "object": "Peoria County",
+                    "relation": "/location/hud_county_place/county",
+                    "text": "Peoria County",
+                    "answer_start": 18,
+                    "score": 1.0
+                }
+            ]
+        },
+        {
+            "passage": "West Peoria is the location of West Penelope .",
+            "answers": [
+                {
+                    "object": "West Peoria",
+                    "relation": "/location/hud_county_place/place",
+                    "text": "West Peoria",
+                    "answer_start": 0,
+                    "score": 1.0
+                }
+            ]
+        },
+        {
+            "passage": "West Peoria is contained within the United States of America , Illinois , Peoria County .",
+            "answers": [
+                {
+                    "object": "United States of America",
+                    "relation": "/location/location/containedby",
+                    "text": "United States of America",
+                    "answer_start": 36,
+                    "score": 1.0
+                },
+                {
+                    "object": "Peoria County",
+                    "relation": "/location/location/containedby",
+                    "text": "Peoria County",
+                    "answer_start": 74,
+                    "score": 1.0
+                },
+                {
+                    "object": "Illinois",
+                    "relation": "/location/location/containedby",
+                    "text": "Illinois",
+                    "answer_start": 63,
+                    "score": 1.0
+                }
+            ]
+        },
+        {
+            "passage": "Andrew Werner was born in West Peoria .",
+            "answers": [
+                {
+                    "object": "Andrew Werner",
+                    "relation": "/location/location/people_born_here",
+                    "text": "Andrew Werner",
+                    "answer_start": 0,
+                    "score": 1.0
+                }
+            ]
+        }
+    ],
+    "kirk_herbstreit": [
+        {
+          "passage": "Kirk Herbstreit 's position is the Quarterback .",
+          "answers": [
+            {
+              "object": "Quarterback",
+              "relation": "/american_football/football_player/position_s",
+              "text": "Quarterback",
+              "answer_start": 35,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "passage": "Kirk Herbstreit , who won in 2011 , won the Sports Emmy Award for Outstanding Sports Personality - Studio Analyst and the 32nd Sports Emmy Awards .",
+          "answers": [
+            {
+              "object": "Sports Emmy Award for Outstanding Sports Personality - Studio Analyst",
+              "relation": "/award/award_winner/awards_won /award/award_honor/award",
+              "text": "Sports Emmy Award for Outstanding Sports Personality - Studio Analyst",
+              "answer_start": 44,
+              "score": 1.0
+            },
+            {
+              "object": "32nd Sports Emmy Awards",
+              "relation": "/award/award_winner/awards_won /award/award_honor/ceremony",
+              "text": "32nd Sports Emmy Awards",
+              "answer_start": 122,
+              "score": 1.0
+            },
+            {
+              "object": "2011",
+              "relation": "/award/award_winner/awards_won /award/award_honor/year",
+              "text": "2011",
+              "answer_start": 29,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -7899905816269173226
+        },
+        {
+          "passage": "Kirk Herbstreit , who won the 32nd Sports Emmy Award and the Outstanding Sports Personality - Studio Analyst , won in 2011 .",
+          "answers": [
+            {
+              "object": "32nd Sports Emmy Awards",
+              "relation": "/award/award_winner/awards_won /award/award_honor/ceremony",
+              "text": "32nd Sports Emmy Award",
+              "answer_start": 30,
+              "score": 0.98
+            },
+            {
+              "object": "Sports Emmy Award for Outstanding Sports Personality - Studio Analyst",
+              "relation": "/award/award_winner/awards_won /award/award_honor/award",
+              "text": "Outstanding Sports Personality - Studio Analyst",
+              "answer_start": 61,
+              "score": 0.95
+            },
+            {
+              "object": "2011",
+              "relation": "/award/award_winner/awards_won /award/award_honor/year",
+              "text": "2011",
+              "answer_start": 118,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -7899905816269173226
+        },
+        {
+          "passage": "Kirk Herbstreit , who won the 32nd Sports Emmy Award in 2011 , won the award for Outstanding Sports Personality - Studio Analyst .",
+          "answers": [
+            {
+              "object": "2011",
+              "relation": "/award/award_winner/awards_won /award/award_honor/year",
+              "text": "2011",
+              "answer_start": 56,
+              "score": 1.0
+            },
+            {
+              "object": "Sports Emmy Award for Outstanding Sports Personality - Studio Analyst",
+              "relation": "/award/award_winner/awards_won /award/award_honor/award",
+              "text": "Outstanding Sports Personality - Studio Analyst",
+              "answer_start": 81,
+              "score": 0.95
+            },
+            {
+              "object": "32nd Sports Emmy Awards",
+              "relation": "/award/award_winner/awards_won /award/award_honor/ceremony",
+              "text": "32nd Sports Emmy Award",
+              "answer_start": 30,
+              "score": 0.98
+            }
+          ],
+          "cvt_hashing": -7899905816269173226
+        },
+        {
+          "passage": "Kirk Herbstreit won the Sports Emmy Award for Outstanding Sports Personality - Studio Analyst in the Year 2010 and the 31st Sports Emmy Awards .",
+          "answers": [
+            {
+              "object": "Sports Emmy Award for Outstanding Sports Personality - Studio Analyst",
+              "relation": "/award/award_winner/awards_won /award/award_honor/award",
+              "text": "Sports Emmy Award for Outstanding Sports Personality - Studio Analyst",
+              "answer_start": 24,
+              "score": 1.0
+            },
+            {
+              "object": "31st Sports Emmy Awards",
+              "relation": "/award/award_winner/awards_won /award/award_honor/ceremony",
+              "text": "31st Sports Emmy Awards",
+              "answer_start": 119,
+              "score": 1.0
+            },
+            {
+              "object": "2010",
+              "relation": "/award/award_winner/awards_won /award/award_honor/year",
+              "text": "2010",
+              "answer_start": 106,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -1912700550184936858
+        },
+        {
+          "passage": "Kirk Herbstreit , who won the 31st Sports Emmy Award , won the award for Outstanding Sports Personality - Studio Analyst in the year 2010 .",
+          "answers": [
+            {
+              "object": "31st Sports Emmy Awards",
+              "relation": "/award/award_winner/awards_won /award/award_honor/ceremony",
+              "text": "31st Sports Emmy Award",
+              "answer_start": 30,
+              "score": 0.98
+            },
+            {
+              "object": "Sports Emmy Award for Outstanding Sports Personality - Studio Analyst",
+              "relation": "/award/award_winner/awards_won /award/award_honor/award",
+              "text": "Outstanding Sports Personality - Studio Analyst",
+              "answer_start": 73,
+              "score": 0.95
+            },
+            {
+              "object": "2010",
+              "relation": "/award/award_winner/awards_won /award/award_honor/year",
+              "text": "2010",
+              "answer_start": 133,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -1912700550184936858
+        },
+        {
+          "passage": "Kirk Herbstreit , who won in the Year 2010 , won the Sports Emmy Award for Outstanding Sports Personality - Studio Analyst at the 31st Sports Emmy Awards .",
+          "answers": [
+            {
+              "object": "2010",
+              "relation": "/award/award_winner/awards_won /award/award_honor/year",
+              "text": "2010",
+              "answer_start": 38,
+              "score": 1.0
+            },
+            {
+              "object": "Sports Emmy Award for Outstanding Sports Personality - Studio Analyst",
+              "relation": "/award/award_winner/awards_won /award/award_honor/award",
+              "text": "Sports Emmy Award for Outstanding Sports Personality - Studio Analyst",
+              "answer_start": 53,
+              "score": 1.0
+            },
+            {
+              "object": "31st Sports Emmy Awards",
+              "relation": "/award/award_winner/awards_won /award/award_honor/ceremony",
+              "text": "31st Sports Emmy Awards",
+              "answer_start": 130,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -1912700550184936858
+        },
+        {
+          "passage": "Kirk Herbstreit 's content is SVP & Russillo .",
+          "answers": [
+            {
+              "object": "SVP & Russillo",
+              "relation": "/broadcast/artist/content",
+              "text": "SVP & Russillo",
+              "answer_start": 30,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "passage": "Kirk Herbstreit was born on 1969-08-19 .",
+          "answers": [
+            {
+              "object": "1969-08-19",
+              "relation": "/people/person/date_of_birth",
+              "text": "1969-08-19",
+              "answer_start": 28,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "passage": "Kirk Herbstreit attended Ohio State University .",
+          "answers": [
+            {
+              "object": "Ohio State University",
+              "relation": "/people/person/education /education/education/institution",
+              "text": "Ohio State University",
+              "answer_start": 25,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": 4202937947763093678
+        },
+        {
+          "passage": "Kirk Herbstreit attended Centerville High School .",
+          "answers": [
+            {
+              "object": "Centerville High School",
+              "relation": "/people/person/education /education/education/institution",
+              "text": "Centerville High School",
+              "answer_start": 25,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": 2706799080328918148
+        },
+        {
+          "passage": "Kirk Herbstreit is a national of the United States of America , Germany .",
+          "answers": [
+            {
+              "object": "United States of America",
+              "relation": "/people/person/nationality",
+              "text": "United States of America",
+              "answer_start": 37,
+              "score": 1.0
+            },
+            {
+              "object": "Germany",
+              "relation": "/people/person/nationality",
+              "text": "Germany",
+              "answer_start": 64,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "passage": "Kirk Herbstreit 's was married to the writer , Jim Herbstit .",
+          "answers": [
+            {
+              "object": "Jim Herbstreit",
+              "relation": "/people/person/parents",
+              "text": "Herbstreit",
+              "answer_start": 5,
+              "score": 0.95
+            }
+          ]
+        },
+        {
+          "passage": "Kirk Herbstreit was born in Centerville .",
+          "answers": [
+            {
+              "object": "Centerville",
+              "relation": "/people/person/place_of_birth",
+              "text": "Centerville",
+              "answer_start": 28,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "passage": "Kirk Herbstreit lived in Columbus .",
+          "answers": [
+            {
+              "object": "Columbus",
+              "relation": "/people/person/places_lived /people/place_lived/location",
+              "text": "Columbus",
+              "answer_start": 25,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": 275923683226008148
+        },
+        {
+          "passage": "Kirk Herbstreit lived in Dayton .",
+          "answers": [
+            {
+              "object": "Dayton",
+              "relation": "/people/person/places_lived /people/place_lived/location",
+              "text": "Dayton",
+              "answer_start": 25,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -1583403099331522721
+        },
+        {
+          "passage": "Kirk Herbstreit is an American football player , Commentator and Sports commentator .",
+          "answers": [
+            {
+              "object": "American football player",
+              "relation": "/people/person/profession",
+              "text": "American football player",
+              "answer_start": 22,
+              "score": 1.0
+            },
+            {
+              "object": "Commentator",
+              "relation": "/people/person/profession",
+              "text": "commentator",
+              "answer_start": 72,
+              "score": 1.0
+            },
+            {
+              "object": "Sports commentator",
+              "relation": "/people/person/profession",
+              "text": "Sports commentator",
+              "answer_start": 65,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "passage": "Kirk Herbstreit played American football .",
+          "answers": [
+            {
+              "object": "American football",
+              "relation": "/sports/pro_athlete/sports_played_professionally /sports/pro_sports_played/sport",
+              "text": "American football",
+              "answer_start": 23,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -7838066407258365950
+        },
+        {
+          "passage": "Kirk Herbstreit started with the Ohio State Buckeyes football team in 1989 and played as a Quarterback . He ended his career in 1993 .",
+          "answers": [
+            {
+              "object": "1989",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/from",
+              "text": "1989",
+              "answer_start": 70,
+              "score": 1.0
+            },
+            {
+              "object": "Quarterback",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/position",
+              "text": "Quarterback",
+              "answer_start": 91,
+              "score": 1.0
+            },
+            {
+              "object": "Ohio State Buckeyes football",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/team",
+              "text": "Ohio State Buckeyes football",
+              "answer_start": 33,
+              "score": 1.0
+            },
+            {
+              "object": "1993",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/to",
+              "text": "1993",
+              "answer_start": 128,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": 8556503455871994728
+        },
+        {
+          "passage": "Kirk Herbstreit started with the Ohio State Buckeyes football team in 1989 and played as a Quarterback . He ended his career in 1993 .",
+          "answers": [
+            {
+              "object": "Quarterback",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/position",
+              "text": "Quarterback",
+              "answer_start": 91,
+              "score": 1.0
+            },
+            {
+              "object": "1989",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/from",
+              "text": "1989",
+              "answer_start": 70,
+              "score": 1.0
+            },
+            {
+              "object": "Ohio State Buckeyes football",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/team",
+              "text": "Ohio State Buckeyes football",
+              "answer_start": 33,
+              "score": 1.0
+            },
+            {
+              "object": "1993",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/to",
+              "text": "1993",
+              "answer_start": 128,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": 8556503455871994728
+        },
+        {
+          "passage": "Kirk Herbstreit started with the Ohio State Buckeyes football team in 1989 and played as a Quarterback . He ended his career in 1993 .",
+          "answers": [
+            {
+              "object": "Ohio State Buckeyes football",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/team",
+              "text": "Ohio State Buckeyes football",
+              "answer_start": 33,
+              "score": 1.0
+            },
+            {
+              "object": "1989",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/from",
+              "text": "1989",
+              "answer_start": 70,
+              "score": 1.0
+            },
+            {
+              "object": "Quarterback",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/position",
+              "text": "Quarterback",
+              "answer_start": 91,
+              "score": 1.0
+            },
+            {
+              "object": "1993",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/to",
+              "text": "1993",
+              "answer_start": 128,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": 8556503455871994728
+        },
+        {
+          "passage": "Kirk Herbstreit started with the Ohio State Buckeyes football team in 1989 and played as a Quarterback . He ended his career in 1993 .",
+          "answers": [
+            {
+              "object": "1993",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/to",
+              "text": "1993",
+              "answer_start": 128,
+              "score": 1.0
+            },
+            {
+              "object": "1989",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/from",
+              "text": "1989",
+              "answer_start": 70,
+              "score": 1.0
+            },
+            {
+              "object": "Quarterback",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/position",
+              "text": "Quarterback",
+              "answer_start": 91,
+              "score": 1.0
+            },
+            {
+              "object": "Ohio State Buckeyes football",
+              "relation": "/sports/pro_athlete/teams /sports/sports_team_roster/team",
+              "text": "Ohio State Buckeyes football",
+              "answer_start": 33,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": 8556503455871994728
+        },
+        {
+          "passage": "Kirk Herbstreit starred in the TV series , Saturday Night Football .",
+          "answers": [
+            {
+              "object": "Saturday Night Football",
+              "relation": "/tv/tv_actor/starring_roles /tv/regular_tv_appearance/series",
+              "text": "Saturday Night Football",
+              "answer_start": 43,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -2956286693691592769
+        },
+        {
+          "passage": "Kirk Herbstreit starred in the College Football Final .",
+          "answers": [
+            {
+              "object": "College Football Final",
+              "relation": "/tv/tv_actor/starring_roles /tv/regular_tv_appearance/series",
+              "text": "College Football Final",
+              "answer_start": 31,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -6704561398750499053
+        },
+        {
+          "passage": "Kirk Herbstreit starred in the Battle of the Gridiron Stars .",
+          "answers": [
+            {
+              "object": "Battle of the Gridiron Stars",
+              "relation": "/tv/tv_actor/starring_roles /tv/regular_tv_appearance/series",
+              "text": "Battle of the Gridiron Stars",
+              "answer_start": 31,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -6838506787643222868
+        },
+        {
+          "passage": "Kirk Herbstreit starred in the TV series , ESPN College Football on ABC .",
+          "answers": [
+            {
+              "object": "ESPN College Football on ABC",
+              "relation": "/tv/tv_actor/starring_roles /tv/regular_tv_appearance/series",
+              "text": "ESPN College Football on ABC",
+              "answer_start": 43,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -1020323633953874761
+        },
+        {
+          "passage": "Kirk Herbstreit starred in College GameDay .",
+          "answers": [
+            {
+              "object": "College GameDay",
+              "relation": "/tv/tv_actor/starring_roles /tv/regular_tv_appearance/series",
+              "text": "College GameDay",
+              "answer_start": 27,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": 2677022397603681569
+        },
+        {
+          "passage": "Kirk Herbstreit starred in College Football Live .",
+          "answers": [
+            {
+              "object": "College Football Live",
+              "relation": "/tv/tv_actor/starring_roles /tv/regular_tv_appearance/series",
+              "text": "College Football Live",
+              "answer_start": 27,
+              "score": 1.0
+            }
+          ],
+          "cvt_hashing": -2075895469781984958
+        }
+      ]
+}
