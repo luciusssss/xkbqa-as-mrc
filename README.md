@@ -18,14 +18,17 @@ Here we describe how to run the code.
 
 ### Data Preparation
 1. MRC datasets for finetuning
+
 * SQuAD 1.1: Put SQuAD 1.1 in `data/external/squad` if you want to training the model from scratch.
 * Existing xMRC datasets: We aggregate the existing xMRC data in each language for finetuning. Download the zip from **[url]** and put the json files in `data/external/xmrc`.
 
 2. KB-to-text generation results
+
 We provide the processed subset of KBs and the results of KB-to-text Generation.
-Download the zip from **[url]** and put the json files in `data/processed/kb2text`.
+Download the zip from **[url]** and put the json/pickle files in `data/processed/kb2text`.
 
 3. Multilingual model of SentenceTransformers
+
 Download the zip from **[url]** and put the folder `paraphrase-multilingual-mpnet-base-v2` in `data/external`
 
 
@@ -88,9 +91,11 @@ chmod +x train_webqsp-zh.sh
 
 ### Zero-shot Experiments on QALD-M
 #### Step 1: KB-to-text Generation
+
 We provide the processed subset of DBPedia and the results of KB-to-text Generation in `data/external/kb2text/kb2text-results_dbpedia-for-qald-m.pk`.
 
 #### Step 2: Passage Construction
+
 Run `src/obtain_passages_qald-m.py` to construct a passage for each question.
 
 ```bash
@@ -116,7 +121,7 @@ Run the following code:
 cd src
 python run_squad_choice.py \
 --model_type roberta \
---model_name_or_path ../models/xlm-roberta-large_squad_combined-all \
+--model_name_or_path ../models/xlm-roberta-large_squad_combined-all_qald-m \
 --do_eval \
 --do_lower_case \
 --data_dir ../data/processed/qald-m_xkbqa-as-mrc \
