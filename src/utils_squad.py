@@ -2,6 +2,8 @@ import logging
 import math
 import os
 import collections
+import re
+import string
 
 import torch
 from torch import nn
@@ -999,12 +1001,25 @@ def compute_predictions_logits_for_choice_mrc(
         with open(output_null_log_odds_file, "w") as writer:
             writer.write(json.dumps(scores_diff_json, indent=4) + "\n")
 
-    return all_predictions
+    return all_predictions, all_nbest_json
 
 
+def normalize_answer(s):
+    """Lower text and remove punctuation, articles and extra whitespace."""
+    def remove_articles(text):
+        regex = re.compile(r'\b(a|an|the)\b', re.UNICODE)
+        return re.sub(regex, ' ', text)
+    def white_space_fix(text):
+        return ' '.join(text.split())
+    def remove_punc(text):
+        exclude = set(string.punctuation)
+        return ''.join(ch for ch in text if ch not in exclude)
+    def lower(text):
+        return text.lower()
+    return white_space_fix(remove_articles(remove_punc(lower(s))))
 
 
-def post_process_results(predictions, predict_data_path, return_metrics=True):
+def post_process_results(nbest_predictions, predict_data_path, return_metrics=True):
     post_processed_results = {}
 
     predict_data = json_load(predict_data_path)
@@ -1014,31 +1029,31 @@ def post_process_results(predictions, predict_data_path, return_metrics=True):
     for item in predict_data['data']:
         for para in item['paragraphs']:
             for qa in para['qas']:
-                predicted_text = predictions[qa['id']]
+                corresponding_object_found = False
+                for pred_item in nbest_predictions[qa['id']]:
+                    if corresponding_object_found:
+                        break
+                    predicted_text = normalize_answer(pred_item['text'])
+                    for cand in qa['candidates']:
+                        if 'object' in cand and normalize_answer(cand['text']) == predicted_text:
+                            corresponding_object_found = True
+                            post_processed_results[qa['id']] = cand['object']
+                            break
+                    
+                if not corresponding_object_found:
+                    post_processed_results[qa['id']] = ""
 
                 ans_found = False
                 for ans in qa['answers']:
-                    if len(ans['text'].strip()) and ans['text'].strip() == predicted_text.strip():
+                    if normalize_answer(ans['object']) == normalize_answer(post_processed_results[qa['id']]):
                         ans_found = True
                         break
                 if ans_found:
                     correct_cnt += 1
                     
-                
-                cand_found = False
-                for cand in qa['candidates']:
-                    if 'object' in cand and cand['text'].strip() == predicted_text.strip():
-                        cand_found = True
-                        post_processed_results[qa['id']] = cand['object']
-                        break
-                if not cand_found:
-                    post_processed_results[qa['id']] = ""
-    
     if return_metrics:
         metrics = correct_cnt/len(post_processed_results)
         return post_processed_results, metrics
     else:
         return post_processed_results
                 
-
-

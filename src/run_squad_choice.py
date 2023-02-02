@@ -350,16 +350,18 @@ def evaluate(args, model, tokenizer, prefix=""):
     logger.info("  Evaluation done in total %f secs (%f sec per example)", evalTime, evalTime / len(dataset))
 
     # Compute predictions
-    output_prediction_file = os.path.join(args.output_dir, "predictions_{}.json".format(prefix))
-    output_nbest_file = os.path.join(args.output_dir, "nbest_predictions_{}.json".format(prefix))
-    output_metric_file = os.path.join(args.output_dir, "metric_{}.json".format(prefix))
+    output_prediction_file = os.path.join(args.output_dir, "raw_predictions.json")
+    output_nbest_file = os.path.join(args.output_dir, "nbest_predictions.json")
+    output_metric_file = os.path.join(args.output_dir, "metric.json")
+    output_postprocessed_prediction_file = os.path.join(args.output_dir, "post_processed_results.json")
+    
 
     if args.version_2_with_negative:
         output_null_log_odds_file = os.path.join(args.output_dir, "null_odds_{}.json".format(prefix))
     else:
         output_null_log_odds_file = None
 
-    predictions = compute_predictions_logits_for_choice_mrc(
+    raw_predictions, nbest_predictions = compute_predictions_logits_for_choice_mrc(
         examples,
         features,
         all_results,
@@ -378,11 +380,11 @@ def evaluate(args, model, tokenizer, prefix=""):
     # # Compute the MRC F1 and exact scores.
     # results = squad_evaluate(examples, predictions)
 
-    post_processed_results, metrics = post_process_results(predictions, os.path.join(args.data_dir, args.predict_file), return_metrics=True)
+    post_processed_results, metrics = post_process_results(nbest_predictions, os.path.join(args.data_dir, args.predict_file), return_metrics=True)
     print("Hit@1: ", metrics)
 
-    json_dump({'hits@1': metrics}, os.path.join(args.output_dir, "metrics.json"))
-    json_dump(post_processed_results, os.path.join(args.output_dir, "post_processed_results.json"))
+    json_dump({'hits@1': metrics}, output_metric_file)
+    json_dump(post_processed_results, output_postprocessed_prediction_file)
         
     return {'hits@1': metrics}
 
