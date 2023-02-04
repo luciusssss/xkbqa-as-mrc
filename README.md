@@ -1,5 +1,7 @@
-# Cross-lingual Question Answering over Knowledge Base as Reading Comprehension
-Data and code for *Cross-lingual Question Answering over Knowledge Base as Reading Comprehension*, Findings of EACL 2023
+# Cross-Lingual Question Answering over Knowledge Base as Reading Comprehension
+Data and code for *Cross-Lingual Question Answering over Knowledge Base as Reading Comprehension*, Findings of EACL 2023
+
+Arxiv preprint: TBA
 
 ## Dataset: WebQSP-zh
 We present WebQSP-zh, a new dataset for cross-lingual KBQA.
@@ -20,16 +22,16 @@ Here we describe how to run the code.
 1. MRC datasets for finetuning
 
 * SQuAD 1.1: Put SQuAD 1.1 in `data/external/squad` if you want to training the model from scratch.
-* Existing xMRC datasets: We aggregate the existing xMRC data in each language for finetuning. Download the zip from **[url]** and put the json files in `data/external/xmrc`.
+* Existing xMRC datasets: We aggregate the existing xMRC data in each language for finetuning. Download the zip from [link](https://pkueducn-my.sharepoint.com/:u:/g/personal/zhangchen1999_pku_edu_cn/EWPlwM9lCrlDpPbNLiCKqnUBK5SG8vb0hdaFo99N-THoDw?e=NwGxQ6) and put the json files in `data/external/xmrc`.
 
 2. KB-to-text generation results
 
 We provide the processed subset of KBs and the results of KB-to-text Generation.
-Download the zip from **[url]** and put the json/pickle files in `data/processed/kb2text`.
+Download the zip from [link](https://pkueducn-my.sharepoint.com/:u:/g/personal/zhangchen1999_pku_edu_cn/EQBpNiyGlSNOj5CHUPZThSYB2i80RjfGFEj0G1S22qfaWA?e=Ko49C8) and put the json/pickle files in `data/processed/kb2text`.
 
 3. Multilingual model of SentenceTransformers
 
-Download the zip from **[url]** and put the folder `paraphrase-multilingual-mpnet-base-v2` in `data/external`
+Download the zip from [link](https://pkueducn-my.sharepoint.com/:u:/g/personal/zhangchen1999_pku_edu_cn/EePEZTIam3pBlaQiHtz70xoBcATST6D766VPu8y17ezx1Q) and put the folder `paraphrase-multilingual-mpnet-base-v2` in `data/external`
 
 
 ### Supervised Experiments on WebQSP-zh
@@ -53,13 +55,13 @@ python obtain_passages_webqsp-zh.py \
     --output_path ../data/processed/webqsp-zh_xkbqa-as-mrc 
 ```
 
-You can also download the output data from **[url]** and put the json files in `data/processed/webqsp-zh_xkbqa-as-mrc`.
+You can also download the output data from [link](https://pkueducn-my.sharepoint.com/:u:/g/personal/zhangchen1999_pku_edu_cn/EZ6yrF1PTwxCju_NIqJRzzQBtJxebjqkmykVk6WfIRaTqw?e=acier9) and put the json files in `data/processed/webqsp-zh_xkbqa-as-mrc`.
 
 #### Step 3: xMRC
 
 * Inference
   
-Download our checkpoint from **[url]** and put it in `models`.
+Download our checkpoint from [link](https://pkueducn-my.sharepoint.com/:u:/g/personal/zhangchen1999_pku_edu_cn/Efj1ZZjzOFpKkMgGll-WDWMBkkGO0rYaW0KuzT1kzFJwEw?e=MwSgNO) and put it in `models`.
 
 Run the following code:
 ```bash
@@ -107,13 +109,12 @@ python obtain_passages_qald-m.py \
 --output_path ../data/processed/qald-m_xkbqa-as-mrc 
 ```
 
-You can also download the output data from **[url]** and put the json files in `data/processed/qald-m_xkbqa-as-mrc`.
-
+You can also download the output data from [link](https://pkueducn-my.sharepoint.com/:u:/g/personal/zhangchen1999_pku_edu_cn/EZ6yrF1PTwxCju_NIqJRzzQBtJxebjqkmykVk6WfIRaTqw?e=acier9) and put the json files in `data/processed/qald-m_xkbqa-as-mrc`.
 #### Step 3: xMRC
 
 * Inference
   
-Download our checkpoint (trained with a combination of the data in all the languages) from **[url]** and put it in `models`.
+Download our checkpoint (trained with a combination of the data in all the languages) from [link](https://pkueducn-my.sharepoint.com/:u:/g/personal/zhangchen1999_pku_edu_cn/EU7Z-ebxOXROuMoV5UgP_rQBq_TXa2jYdbNtq3vOizeS5w?e=zPJehA) and put it in `models`.
 
 
 Run the following code:
