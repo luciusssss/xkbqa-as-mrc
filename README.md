@@ -1,7 +1,7 @@
 # Cross-Lingual Question Answering over Knowledge Base as Reading Comprehension
 Data and code for *Cross-Lingual Question Answering over Knowledge Base as Reading Comprehension*, Findings of EACL 2023
 
-Arxiv preprint: TBA
+Arxiv preprint: https://arxiv.org/abs/2302.13241
 
 ## Dataset: WebQSP-zh
 We present WebQSP-zh, a new dataset for cross-lingual KBQA.
