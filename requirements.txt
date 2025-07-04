@@ -2,5 +2,5 @@ torch==1.8.0
 sentence-transformers==2.2.2
 transformers==3.5.1
 tokenizers==0.9.3
-protobuf==3.19.1
+protobuf==4.25.8
 tensorboardx==2.4.1
